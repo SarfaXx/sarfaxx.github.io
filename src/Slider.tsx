@@ -6,17 +6,18 @@ function valuetext(value: number) {
 }
 
 export default function DiscreteSlider(props: any) {
-  console.log(props);
   const { activeQuestion, answers, setAnswers } = props;
-  console.log(answers[activeQuestion]);
+
   return (
     <Box sx={{ width: 300 }}>
       <span>Nie zgadzam się</span>
       <Slider
         onChange={(event, value) => {
           setAnswers((actualAnswers: any) => {
-            console.log(actualAnswers);
-            return { ...actualAnswers, [activeQuestion]: value };
+            return {
+              ...actualAnswers,
+              [activeQuestion]: value,
+            };
           });
         }}
         aria-label="Temperature"

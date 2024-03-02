@@ -10,6 +10,7 @@ import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 
 import { generatedQuestions } from "./generatedQuestions";
 import Slider from "./Slider";
+import { dividerClasses } from "@mui/material";
 
 const initialAnswers = {
   "0": 0,
@@ -32,6 +33,7 @@ export default function QuestionsStepper() {
   const theme = useTheme();
   const [activeQuestion, setActiveStep] = React.useState(0);
   const [answers, setAnswers] = React.useState(initialAnswers);
+  const [showResults, setShowResults] = React.useState(false);
 
   const maxSteps = generatedQuestions.length;
 
@@ -42,7 +44,12 @@ export default function QuestionsStepper() {
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
-
+  const handleResults = () => {
+    setShowResults(true);
+  };
+  if (showResults === true) {
+    return <div>Twój wynik wynosi:</div>;
+  }
   return (
     <Box sx={{ maxWidth: 400, flexGrow: 1 }}>
       <Paper
@@ -76,10 +83,10 @@ export default function QuestionsStepper() {
         nextButton={
           <Button
             size="small"
-            onClick={handleNext}
-            disabled={activeQuestion === maxSteps - 1}
+            onClick={activeQuestion === 13 ? handleResults : handleNext}
           >
-            Następne pytanie
+            {activeQuestion === 13 ? "Wyświetl wynik" : " Następne pytanie"}
+
             {theme.direction === "rtl" ? (
               <KeyboardArrowLeft />
             ) : (
