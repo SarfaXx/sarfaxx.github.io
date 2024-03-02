@@ -11,6 +11,7 @@ import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import { generatedQuestions } from "./generatedQuestions";
 import Slider from "./Slider";
 import { dividerClasses } from "@mui/material";
+import { calculateResults } from "./calculateResults";
 
 const initialAnswers = {
   "0": 0,
@@ -48,7 +49,11 @@ export default function QuestionsStepper() {
     setShowResults(true);
   };
   if (showResults === true) {
-    return <div>Twój wynik wynosi:</div>;
+    return (
+      <div>
+        Twój wynik wynosi: {calculateResults(generatedQuestions, answers)}%
+      </div>
+    );
   }
   return (
     <Box sx={{ maxWidth: 400, flexGrow: 1 }}>
