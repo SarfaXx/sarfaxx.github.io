@@ -9,12 +9,30 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 
 import { generatedQuestions } from './generatedQuestions';
+import Slider from './Slider';
 
+const answers = {
+    1: 0,
+    2: 1,
+    3: 0.5,
+    4: 0,
+    5: 0,
+    6: 0,
+    7: 0,
+    8: 0,
+    9: 0,
+    10: 0,
+    11: 0,
+    12: 0,
+    13: 0,
+    14: 0,
 
+}
 
 export default function QuestionsStepper() {
     const theme = useTheme();
-    const [activeStep, setActiveStep] = React.useState(0);
+    const [activeQuestion, setActiveStep] = React.useState(0);
+
     const maxSteps = generatedQuestions.length;
 
     const handleNext = () => {
@@ -38,21 +56,21 @@ export default function QuestionsStepper() {
                     bgcolor: 'background.default',
                 }}
             >
-                <Typography>Pytanie {activeStep + 1} z {generatedQuestions.length}</Typography>
+                <Typography>Pytanie {activeQuestion + 1} z {generatedQuestions.length}</Typography>
             </Paper>
             <Box sx={{ height: 255, maxWidth: 400, width: '100%', p: 2 }}>
-                {generatedQuestions[activeStep].question}
-            </Box>
+                {generatedQuestions[activeQuestion].question}
+            </Box><Slider></Slider>
             <MobileStepper
                 variant="text"
                 steps={maxSteps}
                 position="static"
-                activeStep={activeStep}
+                activeStep={activeQuestion}
                 nextButton={
                     <Button
                         size="small"
                         onClick={handleNext}
-                        disabled={activeStep === maxSteps - 1}
+                        disabled={activeQuestion === maxSteps - 1}
                     >
                         Następne pytanie
                         {theme.direction === 'rtl' ? (
@@ -63,7 +81,7 @@ export default function QuestionsStepper() {
                     </Button>
                 }
                 backButton={
-                    <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+                    <Button size="small" onClick={handleBack} disabled={activeQuestion === 0}>
                         {theme.direction === 'rtl' ? (
                             <KeyboardArrowRight />
                         ) : (
