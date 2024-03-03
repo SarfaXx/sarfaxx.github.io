@@ -11,7 +11,7 @@ import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import { generatedQuestions } from "./generatedQuestions";
 import Slider from "./Slider";
 import { calculateResults } from "./calculateResults";
-import { Card, CardActions, CardContent, CardMedia } from "@mui/material";
+import { Card, CardContent, CardMedia } from "@mui/material";
 
 const initialAnswers = {
   "0": 0,

@@ -1,5 +1,5 @@
-import { Box, CssBaseline, Container, Paper } from "@mui/material";
-import React from "react";
+import { Box, CssBaseline, Container } from "@mui/material";
+
 import QuestionsStepper from "./QuestionsStepper";
 import "./App.css";
 

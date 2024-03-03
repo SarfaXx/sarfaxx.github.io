@@ -1,6 +1,5 @@
-import { Grade } from "@mui/icons-material";
 import { Grid, Typography } from "@mui/material";
-import Box from "@mui/material/Box";
+
 import Slider from "@mui/material/Slider";
 
 function valuetext(value: number) {
