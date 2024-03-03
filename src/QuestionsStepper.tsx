@@ -11,6 +11,7 @@ import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import { generatedQuestions } from "./generatedQuestions";
 import Slider from "./Slider";
 import { calculateResults } from "./calculateResults";
+import { Card, CardActions, CardContent, CardMedia } from "@mui/material";
 
 const initialAnswers = {
   "0": 0,
@@ -49,70 +50,105 @@ export default function QuestionsStepper() {
   };
   if (showResults === true) {
     return (
-      <div>
-        Twój wynik wynosi: {calculateResults(generatedQuestions, answers)}%
-      </div>
+      <Card sx={{ width: 600 }}>
+        <CardMedia sx={{ height: 200 }} image="public/tak.png"></CardMedia>
+        <CardContent>
+          <Box sx={{ flexGrow: 1 }}>
+            <Paper
+              square
+              elevation={0}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                height: 50,
+                pl: 2,
+                bgcolor: "background.default",
+              }}
+            >
+              <Typography variant="h4"> Koniec testu</Typography>
+            </Paper>
+            <Box sx={{ height: 255, width: "100%", p: 2 }}>
+              <Typography variant="subtitle1">
+                {" "}
+                Twój wynik wynosi:{" "}
+                {calculateResults(generatedQuestions, answers)}%{" "}
+              </Typography>
+            </Box>
+            <Button variant="contained" onClick={() => location.reload()}>
+              Rozwiąż test ponownie
+            </Button>
+          </Box>
+        </CardContent>
+      </Card>
     );
   }
   return (
-    <Box sx={{ maxWidth: 400, flexGrow: 1 }}>
-      <Paper
-        square
-        elevation={0}
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          height: 50,
-          pl: 2,
-          bgcolor: "background.default",
-        }}
-      >
-        <Typography>
-          Pytanie {activeQuestion + 1} z {generatedQuestions.length}
-        </Typography>
-      </Paper>
-      <Box sx={{ height: 255, maxWidth: 400, width: "100%", p: 2 }}>
-        {generatedQuestions[activeQuestion].question}
-      </Box>
-      <Slider
-        answers={answers}
-        activeQuestion={activeQuestion}
-        setAnswers={setAnswers}
-      ></Slider>
-      <MobileStepper
-        variant="text"
-        steps={maxSteps}
-        position="static"
-        activeStep={activeQuestion}
-        nextButton={
-          <Button
-            size="small"
-            onClick={activeQuestion === 13 ? handleResults : handleNext}
+    <Card sx={{ width: 600 }}>
+      <CardMedia sx={{ height: 200 }} image="public/tak.png"></CardMedia>
+      <CardContent>
+        <Box sx={{ flexGrow: 1 }}>
+          <Paper
+            square
+            elevation={0}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              height: 50,
+              pl: 2,
+              bgcolor: "background.default",
+            }}
           >
-            {activeQuestion === 13 ? "Wyświetl wynik" : " Następne pytanie"}
+            <Typography variant="h4" component="h4">
+              Pytanie {activeQuestion + 1} z {generatedQuestions.length}
+            </Typography>
+          </Paper>
+          <Box sx={{ height: 255, width: "100%", p: 2 }}>
+            <Typography variant="subtitle1">
+              {" "}
+              {generatedQuestions[activeQuestion].question}{" "}
+            </Typography>
+          </Box>
+          <Slider
+            answers={answers}
+            activeQuestion={activeQuestion}
+            setAnswers={setAnswers}
+          ></Slider>
+          <MobileStepper
+            variant="text"
+            steps={maxSteps}
+            position="static"
+            activeStep={activeQuestion}
+            nextButton={
+              <Button
+                size="small"
+                onClick={activeQuestion === 13 ? handleResults : handleNext}
+              >
+                {activeQuestion === 13 ? "Wyświetl wynik" : " Następne pytanie"}
 
-            {theme.direction === "rtl" ? (
-              <KeyboardArrowLeft />
-            ) : (
-              <KeyboardArrowRight />
-            )}
-          </Button>
-        }
-        backButton={
-          <Button
-            size="small"
-            onClick={handleBack}
-            disabled={activeQuestion === 0}
-          >
-            {theme.direction === "rtl" ? (
-              <KeyboardArrowRight />
-            ) : (
-              <KeyboardArrowLeft />
-            )}
-            Powrót
-          </Button>
-        }
-      />
-    </Box>
+                {theme.direction === "rtl" ? (
+                  <KeyboardArrowLeft />
+                ) : (
+                  <KeyboardArrowRight />
+                )}
+              </Button>
+            }
+            backButton={
+              <Button
+                size="small"
+                onClick={handleBack}
+                disabled={activeQuestion === 0}
+              >
+                {theme.direction === "rtl" ? (
+                  <KeyboardArrowRight />
+                ) : (
+                  <KeyboardArrowLeft />
+                )}
+                Powrót
+              </Button>
+            }
+          />
+        </Box>
+      </CardContent>
+    </Card>
   );
 }
