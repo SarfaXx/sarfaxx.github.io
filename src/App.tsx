@@ -1,7 +1,6 @@
 import { Box, CssBaseline, Container } from "@mui/material";
 
 import QuestionsStepper from "./QuestionsStepper";
-import "./App.css";
 
 function App() {
   return (
