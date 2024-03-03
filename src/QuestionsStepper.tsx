@@ -91,7 +91,7 @@ export default function QuestionsStepper() {
   }
   return (
     <Card sx={{ width: 600 }}>
-      <CardMedia sx={{ height: 200 }} image="public/tak.png"></CardMedia>
+      <CardMedia sx={{ height: 200 }} image="images/tak.png"></CardMedia>
       <CardContent>
         <Box sx={{ flexGrow: 1 }}>
           <Paper
