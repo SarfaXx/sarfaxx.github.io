@@ -5,7 +5,13 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="app-background">
+    <Box
+      sx={{
+        background: `url("images/drop.png") no-repeat center center fixed`,
+        backgroundSize: "cover",
+      }}
+      className="app-background"
+    >
       <CssBaseline />
       <Container maxWidth="sm">
         <Box
@@ -17,7 +23,7 @@ function App() {
           <QuestionsStepper></QuestionsStepper>
         </Box>
       </Container>
-    </div>
+    </Box>
   );
 }
 
