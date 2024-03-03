@@ -51,7 +51,7 @@ export default function QuestionsStepper() {
   if (showResults === true) {
     return (
       <Card sx={{ width: 600 }}>
-        <CardMedia sx={{ height: 200 }} image="public/tak.png"></CardMedia>
+        <CardMedia sx={{ height: 200 }} image="tak.png"></CardMedia>
         <CardContent>
           <Box sx={{ flexGrow: 1 }}>
             <Paper
@@ -69,14 +69,21 @@ export default function QuestionsStepper() {
             </Paper>
             <Box sx={{ height: 255, width: "100%", p: 2 }}>
               <Typography variant="subtitle1">
-                {" "}
-                Twój wynik wynosi:{" "}
-                {calculateResults(generatedQuestions, answers)}%{" "}
+                Twój wynik wynosi:
+                <strong>
+                  {calculateResults(generatedQuestions, answers)}%{" "}
+                </strong>
               </Typography>
             </Box>
-            <Button variant="contained" onClick={() => location.reload()}>
-              Rozwiąż test ponownie
-            </Button>
+            <Box
+              display={"flex"}
+              alignItems={"center"}
+              justifyContent={"center"}
+            >
+              <Button variant="contained" onClick={() => location.reload()}>
+                Rozwiąż test ponownie
+              </Button>
+            </Box>
           </Box>
         </CardContent>
       </Card>
@@ -102,17 +109,19 @@ export default function QuestionsStepper() {
               Pytanie {activeQuestion + 1} z {generatedQuestions.length}
             </Typography>
           </Paper>
-          <Box sx={{ height: 255, width: "100%", p: 2 }}>
+          <Box sx={{ height: 200, width: "100%", p: 2 }}>
             <Typography variant="subtitle1">
               {" "}
               {generatedQuestions[activeQuestion].question}{" "}
             </Typography>
           </Box>
-          <Slider
-            answers={answers}
-            activeQuestion={activeQuestion}
-            setAnswers={setAnswers}
-          ></Slider>
+          <Box marginBottom={6}>
+            <Slider
+              answers={answers}
+              activeQuestion={activeQuestion}
+              setAnswers={setAnswers}
+            ></Slider>
+          </Box>
           <MobileStepper
             variant="text"
             steps={maxSteps}

@@ -9,5 +9,5 @@ export function calculateResults(generatedQuestions: any, finalAnswers: any) {
     console.log(pointsForThisQuestion);
     sumOfPoints = sumOfPoints + pointsForThisQuestion;
   }
-  return ((sumOfPoints + 14) / 28) * 100;
+  return (((sumOfPoints + 14) / 28) * 100).toFixed(2);
 }

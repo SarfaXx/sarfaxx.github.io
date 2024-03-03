@@ -1,10 +1,11 @@
 import { Box, CssBaseline, Container, Paper } from "@mui/material";
 import React from "react";
 import QuestionsStepper from "./QuestionsStepper";
+import "./App.css";
 
 function App() {
   return (
-    <React.Fragment>
+    <div className="app-background">
       <CssBaseline />
       <Container maxWidth="sm">
         <Box
@@ -16,7 +17,7 @@ function App() {
           <QuestionsStepper></QuestionsStepper>
         </Box>
       </Container>
-    </React.Fragment>
+    </div>
   );
 }
 
