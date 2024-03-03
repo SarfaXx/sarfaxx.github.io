@@ -51,7 +51,7 @@ export default function QuestionsStepper() {
   if (showResults === true) {
     return (
       <Card sx={{ width: 600 }}>
-        <CardMedia sx={{ height: 200 }} image="tak.png"></CardMedia>
+        <CardMedia sx={{ height: 200 }} image="images/tak.png"></CardMedia>
         <CardContent>
           <Box sx={{ flexGrow: 1 }}>
             <Paper
