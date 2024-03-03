@@ -12,7 +12,7 @@ export default function DiscreteSlider(props: any) {
     <Box sx={{ width: 300 }}>
       <span>Nie zgadzam się</span>
       <Slider
-        onChange={(event, value) => {
+        onChange={(_event, value) => {
           setAnswers((actualAnswers: any) => {
             return {
               ...actualAnswers,

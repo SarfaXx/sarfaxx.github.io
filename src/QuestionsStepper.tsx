@@ -10,7 +10,6 @@ import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 
 import { generatedQuestions } from "./generatedQuestions";
 import Slider from "./Slider";
-import { dividerClasses } from "@mui/material";
 import { calculateResults } from "./calculateResults";
 
 const initialAnswers = {
